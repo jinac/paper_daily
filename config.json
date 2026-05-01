@@ -1,0 +1,19 @@
+{
+  "search_params": {
+    "time_frame_hours": 24,
+    "query_filter": ""
+  },
+  "filtering": {
+    "keywords": ["transformer", "agent", "llm"],
+    "llm_prompt": "Determine if the following abstract is relevant to the field of autonomous agents. Answer only 'Yes' or 'No'.\n\nAbstract: {abstract}"
+  },
+  "llm_settings": {
+    "provider": "ollama",
+    "endpoint": "http://localhost:11434/api/generate",
+    "model": "llama3",
+    "temperature": 0
+  },
+  "output": {
+    "file_path": "RESEARCH_DIGEST.md"
+  }
+}
