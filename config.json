@@ -4,7 +4,7 @@
     "subject_filters": ["cs.CV", "cs.LG", "cs.AI", "cs.NE", "cs.SD", "eess.IV", "eess.SP"]
   },
   "filtering": {
-    "keywords": ["transformer", "agent", "llm"],
+    "keywords": ["3d reconstruction", "SLAM", "pose estimation", "generation", "diffusion"],
     "llm_prompt": "Determine if the following abstract is relevant to the field of autonomous agents. Answer only 'Yes' or 'No'.\n\nAbstract: {abstract}"
   },
   "llm_settings": {
