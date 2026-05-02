@@ -9,6 +9,12 @@ from generator import PaperGenerator
 def main():
     parser = argparse.ArgumentParser(description="ArXiv Researcher Agent: Fetch, Filter, and Generate Research Digests.")
     parser.add_argument(
+        "--config", "-c",
+        type=str, 
+        default="config.json", 
+        help="Path to the configuration JSON file (default: config.json)."
+    )
+    parser.add_argument(
         "--no-filter", 
         action="store_true", 
         help="Skip the filtering stage and generate a digest from all fetched papers."
@@ -17,8 +23,8 @@ def main():
 
     try:
         # 1. Load Configuration
-        print("Loading configuration...")
-        config = load_config()
+        print(f"Loading configuration from {args.config}...")
+        config = load_config(args.config)
 
         # 2. Initialize Components
         fetcher = ArxivFetcher(config)
@@ -49,8 +55,9 @@ def main():
         print("Process completed successfully.")
 
     except Exception as e:
-        print(f"CRITICAL ERROR: {e}")
+        print(f"CRITICAL ERROR: {argparse.ArgumentTypeError if 'argparse' in str(type(e)) else e}")
         sys.exit(1)
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,20 @@
+{
+  "search_params": {
+    "time_frame_hours": 24,
+    "subject_filters": ["cs.CV", "cs.LG", "cs.AI", "eess.IV", "eess.SP"]
+  },
+  "filtering": {
+    "keywords": ["3d reconstruction", "SLAM", "pose estimation", "generation", "diffusion"],
+    "llm_prompt": "Determine if the following abstract is relevant to the field of 3d reconstruction, SLAM, pose estimation, or generative models. Answer only 'Yes' or 'No'.\n\nAbstract: {abstract}"
+  },
+  "llm_settings": {
+    "provider": "openai",
+    "api_key": "",
+    "base_url": "http://localhost:11434/v1/",
+    "model": "gemma4:e4b",
+    "temperature": 0
+  },
+  "output": {
+    "file_path": "RESEARCH_DIGEST.md"
+  }
+}
