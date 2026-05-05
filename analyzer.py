@@ -44,13 +44,14 @@ class PaperAnalyzer:
         """Orchestrates the two-stage filtering process."""
         filtered_papers = []
         
+        print(f"Filtering from {len(papers)} papers")
         for paper in papers:
             # Stage 1: Keyword Filter
             if self.keyword_filter(paper.get("abstract", "")):
                 filtered_papers.append(paper)
                 # Stage 2: LLM Filter
-                if self.llm_filter(paper.get("abstract", "")):
-                    filtered_papers.append(paper)
+                #if self.llm_filter(paper.get("abstract", "")):
+                #    filtered_papers.append(paper)
                     
         return filtered_papers
 
