@@ -49,8 +49,8 @@ class PaperAnalyzer:
             if self.keyword_filter(paper.get("abstract", "")):
                 filtered_papers.append(paper)
                 # Stage 2: LLM Filter
-#                if self.llm_filter(paper.get("abstract", "")):
-#                    filtered_papers.append(paper)
+                if self.llm_filter(paper.get("abstract", "")):
+                    filtered_papers.append(paper)
                     
         return filtered_papers
 
