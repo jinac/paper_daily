@@ -4,6 +4,15 @@ from datetime import timedelta, timezone
 import time
 from config_loader import load_config
 
+def dedup(paper_objs):
+    seen = set()
+    unique_papers = []
+    for obj in paper_objs:
+        if obj['id'] not in seen:
+            unique_papers.append(obj)
+            seen.add(obj['id'])
+    return(unique_papers)
+
 class ArxivFetcher:
     def __init__(self, config):
         self.config = config
@@ -49,7 +58,8 @@ class ArxivFetcher:
                         "link": result.entry_id,
                         "abstract": result.summary,
                         "published": result.published,
-                        "primary_category": result.primary_category
+                        "primary_category": result.primary_category,
+                        "id": result.get_short_id()
                     })
                     count += 1
                 print(f"{subj}: {count}")
@@ -57,7 +67,8 @@ class ArxivFetcher:
                 print(f"Error during arXiv search: {e}")
 
             time.sleep(3) # Time sleep to respect rate limits
-            
+        
+        papers = dedup(papers)
         return papers
 
 if __name__ == "__main__":
