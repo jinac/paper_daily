@@ -1,4 +1,11 @@
 {
+  "rss_urls": [
+    	"https://rss.arxiv.org/rss/cs.CV",
+    	"https://rss.arxiv.org/rss/cs.LG",
+    	"https://rss.arxiv.org/rss/cs.AI",
+    	"https://rss.arxiv.org/rss/eess.IV",
+    	"https://rss.arxiv.org/rss/eess.SP"
+    ],
   "search_params": {
     "time_frame_hours": 24,
     "subject_filters": ["cs.CV", "cs.LG", "cs.AI", "eess.IV", "eess.SP"]
@@ -15,6 +22,6 @@
     "temperature": 0
   },
   "output": {
-    "file_path": "RESEARCH_DIGEST.md"
+    "file_path": "~Desktop/RESEARCH_DIGEST.md"
   }
 }
