@@ -2,7 +2,7 @@ import argparse
 import json
 import sys
 from config_loader import load_config
-from fetcher import ArxivFetcher
+from fetcher import RSSFetcher
 from analyzer import PaperAnalyzer
 from generator import PaperGenerator
 
@@ -27,7 +27,7 @@ def main():
         config = load_config(args.config)
 
         # 2. Initialize Components
-        fetcher = ArxivFetcher(config)
+        fetcher = RSSFetcher(config)
         generator = PaperGenerator(config)
         analyzer = PaperAnalyzer(config)
 
